@@ -1,0 +1,57 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: SocialBlocks
+    network: mumbai
+    source:
+      address: "0xd38BE6f0A3F7B3c7dF4b4Cd564DcD19f23cB757b"
+      abi: SocialBlocks
+      startBlock: 27642815
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - AccountCreated
+        - Approval
+        - ApprovalForAll
+        - BidPlaced
+        - BiddableTokenPurchased
+        - InfoChanged
+        - OwnershipTransferred
+        - PostCreated
+        - PostDetailsChanged
+        - PostRewardClaimed
+        - PostSold
+        - Transfer
+      abis:
+        - name: SocialBlocks
+          file: ./abis/SocialBlocks.json
+      eventHandlers:
+        - event: AccountCreated(address,string,string,string,string)
+          handler: handleAccountCreated
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll
+        - event: BidPlaced(address,uint256,uint256)
+          handler: handleBidPlaced
+        - event: BiddableTokenPurchased(address,address,uint256,uint256)
+          handler: handleBiddableTokenPurchased
+        - event: InfoChanged(string,string,string)
+          handler: handleInfoChanged
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: PostCreated(uint256,address,string,uint8,uint256,string)
+          handler: handlePostCreated
+        - event: PostDetailsChanged(uint256,uint8,uint256,uint256)
+          handler: handlePostDetailsChanged
+        - event: PostRewardClaimed(address,uint256,uint256)
+          handler: handlePostRewardClaimed
+        - event: PostSold(address,address,uint256,uint256)
+          handler: handlePostSold
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/social-blocks.ts
