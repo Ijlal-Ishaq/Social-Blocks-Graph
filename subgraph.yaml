@@ -6,7 +6,7 @@ dataSources:
     name: SocialBlocks
     network: mumbai
     source:
-      address: "0xd38BE6f0A3F7B3c7dF4b4Cd564DcD19f23cB757b"
+      address: "0x8aD267031Fa6a35Bd6E0cd582202994a1E1129b5"
       abi: SocialBlocks
       startBlock: 27642815
     mapping:
