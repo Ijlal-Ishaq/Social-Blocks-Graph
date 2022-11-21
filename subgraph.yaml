@@ -4,11 +4,11 @@ schema:
 dataSources:
   - kind: ethereum
     name: SocialBlocks
-    network: mumbai
+    network: aurora-testnet
     source:
-      address: "0x8aD267031Fa6a35Bd6E0cd582202994a1E1129b5"
+      address: "0xd9B533f2A958A1E8083b04bFc57CB511C0447cC7"
       abi: SocialBlocks
-      startBlock: 27642815
+      startBlock: 104847884
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
